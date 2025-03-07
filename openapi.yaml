@@ -1,0 +1,54 @@
+openapi: 3.0.1
+info:
+  title: Agenda ChatGPT API
+  description: API para consultar sua agenda do Google Calendar.
+  version: "1.0"
+servers:
+  - url: https://script.google.com/macros/s/AKfycbyVQxMle5POewvg1-KLigO8vg43En9H60agdraz9iGNkGEpedyyxtzOUSy9OzDaQvl3/exec
+paths:
+  /:
+    get:
+      summary: Consulta a agenda com base nos parâmetros de query.
+      parameters:
+        - in: query
+          name: action
+          required: true
+          schema:
+            type: string
+            enum:
+              - agendaHoje
+              - agendaSemana
+              - agendaProximosDias
+              - agendaPeriodo
+          description: Tipo de ação desejada.
+        - in: query
+          name: dias
+          required: false
+          schema:
+            type: integer
+          description: Quantidade de dias (para action=agendaProximosDias).
+        - in: query
+          name: start
+          required: false
+          schema:
+            type: string
+          description: Data de início (YYYY-MM-DD) para agendaPeriodo.
+        - in: query
+          name: end
+          required: false
+          schema:
+            type: string
+          description: Data de fim (YYYY-MM-DD) para agendaPeriodo.
+      responses:
+        '200':
+          description: Retorna o texto formatado da agenda
+          content:
+            text/plain:
+              schema:
+                type: string
+        '400':
+          description: Parâmetros inválidos ou faltantes
+          content:
+            text/plain:
+              schema:
+                type: string
