@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Agenda ChatGPT",
+  "name_for_model": "agenda_chatgpt",
+  "description_for_human": "Plugin para consultar sua agenda do Google Calendar.",
+  "description_for_model": "Use este plugin para consultar sua agenda no Google Calendar. Suporta as ações: agendaHoje, agendaSemana, agendaProximosDias e agendaPeriodo.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://redouek.github.io/agendaGPT-plugin/openapi.yaml",
+    "is_user_authenticated": false
+  },
+  "logo_url": "https://via.placeholder.com/512?text=Agenda+ChatGPT",
+  "contact_email": "contato@exemplo.com",
+  "legal_info_url": "https://redouek.github.io/agendaGPT-plugin/legal.html"
+}
